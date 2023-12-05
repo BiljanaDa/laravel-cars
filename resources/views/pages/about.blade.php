@@ -4,4 +4,6 @@
 <body>
     <h1>About us</h1>
 </body>
+
+@include('components.footer')
 </html>

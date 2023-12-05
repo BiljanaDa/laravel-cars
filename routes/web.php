@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $name = "Biljana";
-    $age = "37";
-    return view('pages.welcome', compact('name', 'age'));
+// Route::get('/', function () {
+//     $name = "Biljana";
+//     $age = "37";
+//     return view('pages.home', compact('name', 'age'));
+// });
+
+Route::get('/home', function () {
+    return view('pages.home');
 });
 
-Route::get('/about', function () {
-    return view('pages.about');
-});
+Route::get('/cars', [CarController::class, 'index']);
+Route::get('/cars/{id}', [CarController::class, 'show']);
